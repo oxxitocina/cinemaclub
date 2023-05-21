@@ -1,0 +1,40 @@
+%button {
+  position: absolute;
+  bottom: 45%;
+  z-index: 9;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  height: 70px;
+  width: 35px;
+  border-radius: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonNext {
+  @extend %button;
+  right: 3%;
+}
+
+.buttonNextSmall {
+  @extend %button;
+  right: 0%;
+  height: 35px;
+  bottom: 55%;
+}
+
+.buttonPrev {
+  @extend %button;
+  left: 3%;
+}
+
+.buttonPrevSmall {
+  @extend %button;
+  left: 0%;
+  height: 35px;
+  bottom: 55%;
+}
+
