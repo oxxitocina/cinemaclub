@@ -1,50 +1,49 @@
-import { Typography } from '@mui/material';
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
-import React from 'react'
-import SaveIcon from '../UI/SaveIcon/SaveIcon';
-import BookmarkIcon from '../UI/LaterIcon/BookmarkIcon';
+import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import SaveIcon from "../UI/SaveIcon/SaveIcon";
+import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
+import { fetchMovieById } from "../../app/slices/movieDataApi/movieDataSlice";
+import {
+  movieIconsWrapper,
+  movieCardWrapper,
+  movieImageStyle,
+  typographyStyle,
+} from "./MovieCardFullStyle";
 
-export default function MovieCardFull({data}) {
-    const imagePath = data.poster_path || data.backdrop_path;
-    const URL = `https://image.tmdb.org/t/p/w500/${imagePath}`;
+export default function MovieCardFull({ data, gridSize }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const URL = data.poster.url;
 
   return (
     <>
-        <Box component="div" onClick={console.log(1)} sx={{
-            margin: '0 auto'
-        }}>
-            <Paper sx={{
-                width: '85%',
-                height: '28.5vh',
-                borderRadius: '3%',
-                cursor: 'pointer',
-                backgroundImage: `url(${URL})`,
-                    backgroundSize: '100%',
-                    backgroundPosition: 'center top',
-                    "&:hover": {
-                        border: '2px solid #1976d2',
-                        padding: 1,
-                    }
-            }}>
-                <Box sx={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            gap: '2px',
-        }}>
-            <SaveIcon/>
-            <BookmarkIcon/>
+      <Grid item xs={gridSize}>
+        <Box
+          component="div"
+          onClick={() => {
+            navigate(`/movie/${data.id}`, {
+              replace: true,
+              state: {
+                movieData: data,
+              },
+            });
+            dispatch(fetchMovieById(data.id));
+          }}
+          sx={movieCardWrapper}
+        >
+          <Box sx={movieIconsWrapper}>
+            <SaveIcon id={data.id} />
+            <BookmarkIcon id={data.id} />
+          </Box>
+          <img src={URL} alt="" style={movieImageStyle} />
         </Box>
-            </Paper>
-        </Box>
-         <Typography variant='body2' sx={{
-                color: 'white',
-                marginTop: 1,
-                width: '85%',
-            }}>
-                {data.title}
-            </Typography>
+        <Typography variant="body2" sx={typographyStyle}>
+          {data.name}
+        </Typography>
+      </Grid>
     </>
-  )
+  );
 }

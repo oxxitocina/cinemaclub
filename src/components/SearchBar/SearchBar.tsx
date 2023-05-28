@@ -1,38 +1,71 @@
 import { useState } from "react";
-import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import { useDispatch } from "react-redux";
 import { setSearch } from "../../app/slices/search/searchingSlice";
+import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import useScreen from "../../hooks/useScreen";
+import {
+  searchBarWrapper,
+  searchFormWrapper,
+  searchIconWrapper,
+  searchTextFieldStyle,
+} from "./SearchBarStyle";
 
 export default function SearchBar() {
-    const dispatch = useDispatch();
-    const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isMobile, isTablet } = useScreen();
+  const [searchQuery, setSearchQuery] = useState("");
+  const height = {
+    height: isMobile ? "6vh" : isTablet ? "5vw" : "4vh",
+  };
 
-    function handleSubmit(event)    {
-        event.preventDefault();
-        dispatch(setSearch(searchQuery));     
-    }
-      
+  function handleSubmit(event) {
+    event.preventDefault();
+    dispatch(setSearch(searchQuery));
+    setSearchQuery("");
+    navigate("/movies");
+  }
+
   return (
     <>
+      <Box
+        sx={[
+          {
+            width: isMobile || isTablet ? "100vw" : "200px",
+          },
+          searchBarWrapper,
+          height,
+        ]}
+      >
         <form onSubmit={handleSubmit}>
-          <TextField
-            id="search-bar"
-            className="text"
-            onInput={(event) => {
-              setSearchQuery(event.target.value);
-              dispatch(setSearch(event.target.value));
-            }}
-            label="Enter a city name"
-            variant="outlined"
-            placeholder="Search..."
-            size="small"
-          />
-          <IconButton type="submit" aria-label="search">
-            <SearchIcon style={{ fill: "blue" }} />
-          </IconButton>
+          <Box sx={searchFormWrapper}>
+            <Box sx={[height, searchIconWrapper]}>
+              <SearchIcon type="submit" />
+            </Box>
+
+            <TextField
+              variant="standard"
+              placeholder="search"
+              onChange={(event) => {
+                setSearchQuery(event.target.value);
+              }}
+              value={searchQuery}
+              InputProps={{
+                disableUnderline: true,
+              }}
+              sx={[
+                {
+                  ".MuiInputBase-root": height,
+                },
+                searchTextFieldStyle,
+              ]}
+            />
+          </Box>
         </form>
+      </Box>
     </>
-  )
+  );
 }

@@ -4,32 +4,34 @@ import App from "./App.tsx";
 import store from "./app/store.tsx";
 import { Provider } from "react-redux/es/exports";
 import "./index.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainPage from "./pages/MainPage.tsx";
-import MoviesPage from "./pages/MoviesPage.tsx";
-import MoviePage from "./pages/MoviePage.tsx";
+import MoviesPage from "./pages/MoviesPage/MoviesPage.tsx";
+import MoviePage from "./pages/MoviePage/MoviePage.tsx";
+import Login from "./components/Login/Login.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
     children: [
       {
-        path: '/',
-        element: <MainPage/>
+        path: "/",
+        element: <MainPage />,
       },
       {
-        path: 'movies',
-        element: <MoviesPage/>
+        path: "movies",
+        element: <MoviesPage />,
       },
       {
-        path: 'movie/:movieID',
-        element: <MoviePage/>
-      }
-    ]
+        path: "movie/:movieID",
+        element: <MoviePage />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
   },
 ]);
 

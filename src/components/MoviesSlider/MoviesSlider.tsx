@@ -1,62 +1,55 @@
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ArrowForward from '../UI/NavigationButtons/ArrowForward'
-import ArrowBack from '../UI/NavigationButtons/ArrowBack'
-import { data } from "../../mock_data/movies";
-import MovieCard from "../MovieCard";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import ArrowForward from "../UI/NavigationButtons/ArrowForward";
+import ArrowBack from "../UI/NavigationButtons/ArrowBack";
+import { data } from "../../mockData/allMovies";
 import { Navigation, Autoplay } from "swiper";
 import "swiper/css/pagination";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import MovieCardFull from "../MovieCardFull/MovieCardFull";
-
-// Import Swiper styles
+import MovieCategoryNavigation from "../UI/MovieCategoryNavigation/MovieCategoryNavigation";
 import "swiper/css";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import { movieSliderStyle } from "./MovieSliderStyle";
 
 export default function MoviesSlider() {
   const movies = data.slice(0, 25);
 
   return (
     <>
-      <Box
-        sx={{
-          color: "white",
-          marginTop: 1,
-        }}
-      >
-        <Box sx={{
-          borderLeft: '3px solid #1976d2',
-          paddingLeft: '10px',
-          display: 'flex',
-          alignItems: 'center'
-        }}>
-            <Typography variant="h5">Фильмы с высоким рейтингом</Typography>
-            <ArrowForwardIosIcon/>
-        </Box>
-        <Box
-          sx={{
-            marginTop: 2,
-          }}
-        >
+      <Box sx={movieSliderStyle}>
+        <MovieCategoryNavigation title={"Популярные фильмы"} />
+        <Box sx={movieSliderStyle}>
           <Swiper
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
             }}
-            slidesPerView={5}
+            slidesPerView={2}
             loop={true}
-            spaceBetween={30}
+            spaceBetween={50}
             modules={[Navigation, Autoplay]}
             className="mySwiper"
+            breakpoints={{
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+              768: {
+                slidesPerView: 4,
+                spaceBetween: 50,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 50,
+              },
+            }}
           >
-            <ArrowBack small={true}/>
-            <ArrowForward small={true}/>
+            <ArrowBack small={true} />
+            <ArrowForward small={true} />
+
             {movies.map((movie) => {
               return (
                 <SwiperSlide>
-                  {/* <MovieCard data={movie} /> */}
-                  <MovieCardFull data={movie}/>
+                  <MovieCardFull data={movie} />
                 </SwiperSlide>
               );
             })}
