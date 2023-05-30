@@ -1,7 +1,7 @@
 const playerWrapper = {
   maxWidth: "100%",
   width: "100vw",
-  height: "94vh",
+  height: "100vw",
   zIndex: 90,
   position: "absolute",
   paddingTop: 8,
