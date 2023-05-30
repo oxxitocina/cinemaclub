@@ -39,7 +39,7 @@ export default function MainPage(props) {
             <MainPageInfo data={data} />
 
             <Stack direction={"row"} spacing={2} sx={{ marginTop: 2 }}>
-              <Button variant="contained" sx={mainPageButton} onClick={() => {navigate(`/movies/${data.id}`)}}>
+              <Button variant="contained" sx={mainPageButton} onClick={() => {navigate(`/movie/${data.id}`)}}>
                 Подробнее
               </Button>
               <Box>

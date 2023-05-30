@@ -38,7 +38,7 @@ export default function DesktopMainPage({ data }) {
                   <MainPageInfo data={data} />
 
                   <Stack direction={"row"} spacing={2} sx={{ marginTop: 5 }}>
-                    <Button variant="contained" sx={desktopMainPageButton} onClick={() => {navigate(`/movies/${data.id}`)}}>
+                    <Button variant="contained" sx={desktopMainPageButton} onClick={() => {navigate(`/movie/${data.id}`)}}>
                       Подробнее
                     </Button>
                     <Box>
