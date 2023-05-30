@@ -16,9 +16,12 @@ import {
 import SaveIcon from "../UI/SaveIcon/SaveIcon";
 import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchMovieById } from "../../app/slices/movieDataApi/movieDataSlice";
 
 export default function DesktopMainPage({ data }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const url = data.backdrop.url;
   return (
     <>
@@ -38,7 +41,15 @@ export default function DesktopMainPage({ data }) {
                   <MainPageInfo data={data} />
 
                   <Stack direction={"row"} spacing={2} sx={{ marginTop: 5 }}>
-                    <Button variant="contained" sx={desktopMainPageButton} onClick={() => {navigate(`/movie/${data.id}`)}}>
+                    <Button variant="contained" sx={desktopMainPageButton} onClick={() => {
+                      navigate(`/movie/${data.id}`, {
+                        replace: true,
+                        state: {
+                          movieData: data,
+                        },
+                      });
+                      dispatch(fetchMovieById(data.id));
+                    }}>
                       Подробнее
                     </Button>
                     <Box>
