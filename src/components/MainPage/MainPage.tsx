@@ -1,7 +1,5 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { ThemeProvider, createTheme } from "@mui/material";
 import Button from "@mui/material/Button";
 import useScreen from "../../hooks/useScreen";
@@ -17,8 +15,10 @@ import {
 import DesktopMainPage from "./DesktopMainPage";
 import SaveIcon from "../UI/SaveIcon/SaveIcon";
 import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage(props) {
+  const navigate = useNavigate();
   const data = props.props;
   const url = data.backdrop.url;
   const theme = createTheme(mainPageStyle);
@@ -39,7 +39,7 @@ export default function MainPage(props) {
             <MainPageInfo data={data} />
 
             <Stack direction={"row"} spacing={2} sx={{ marginTop: 2 }}>
-              <Button variant="contained" sx={mainPageButton}>
+              <Button variant="contained" sx={mainPageButton} onClick={() => {navigate(`/movies/${data.id}`)}}>
                 Подробнее
               </Button>
               <Box>

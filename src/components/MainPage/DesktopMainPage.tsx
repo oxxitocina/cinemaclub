@@ -4,8 +4,6 @@ import Grid from "@mui/material/Grid";
 import MainPageInfo from "./MainPageInfo/MainPageInfo";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import MainPageDescription from "./MainPageDescription/MainPageDescription";
 import {
   desktopInfoContainer,
@@ -17,8 +15,10 @@ import {
 } from "./DesktopMainPageStyle";
 import SaveIcon from "../UI/SaveIcon/SaveIcon";
 import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
+import { useNavigate } from "react-router-dom";
 
 export default function DesktopMainPage({ data }) {
+  const navigate = useNavigate();
   const url = data.backdrop.url;
   return (
     <>
@@ -38,7 +38,7 @@ export default function DesktopMainPage({ data }) {
                   <MainPageInfo data={data} />
 
                   <Stack direction={"row"} spacing={2} sx={{ marginTop: 5 }}>
-                    <Button variant="contained" sx={desktopMainPageButton}>
+                    <Button variant="contained" sx={desktopMainPageButton} onClick={() => {navigate(`/movies/${data.id}`)}}>
                       Подробнее
                     </Button>
                     <Box>
