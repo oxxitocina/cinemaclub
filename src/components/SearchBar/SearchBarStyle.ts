@@ -1,6 +1,17 @@
 const searchBarWrapper = {
   backgroundColor: "#1a171e",
   borderRadius: "3%",
+  width: "100vw",
+  "@media (min-width:1150px)": {
+    height: "2vw",
+    width: "200px",
+  },
+  "@media (max-width:1149px)": {
+    height: "5vw",
+  },
+  "@media (max-width:576px)": {
+    height: "6vh",
+  },
 };
 
 const searchFormWrapper = {

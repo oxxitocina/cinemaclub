@@ -36,7 +36,7 @@ export default function GenresCheckBoxes() {
             color="primary"
             label={genre.name}
             sx={{
-              height: "2.5vh",
+              height: "1.5vw",
             }}
             value={genre.name}
             checked={filterGenres.includes(genre.name)}

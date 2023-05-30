@@ -1,7 +1,7 @@
 import Select from "@mui/material/Select";
 import useScreen from "../../../../hooks/useScreen";
 import { useDispatch, useSelector } from "react-redux";
-import { sorting } from "../../../../mockData/filters";
+import { sorting } from "../../../../mockData/filters.ts";
 import MenuItem from "@mui/material/MenuItem";
 import { changePage } from "../../../../app/slices/pagination/paginationSlice";
 import {
@@ -43,7 +43,7 @@ export default function SortingSelect() {
         sx={[
           selectStyle,
           {
-            height: isTablet ? "4vw" : isMobile ? "5vw" : "3.5vh",
+            height: isTablet ? "4vw" : isMobile ? "5vw" : "1.75vw",
           },
         ]}
         onChange={handleChange}

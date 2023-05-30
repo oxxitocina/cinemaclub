@@ -19,7 +19,7 @@ export default function SearchBar() {
   const { isMobile, isTablet } = useScreen();
   const [searchQuery, setSearchQuery] = useState("");
   const height = {
-    height: isMobile ? "6vh" : isTablet ? "5vw" : "4vh",
+    height: isMobile ? "6vh" : isTablet ? "5vw" : "2vw",
   };
 
   function handleSubmit(event) {
@@ -31,15 +31,7 @@ export default function SearchBar() {
 
   return (
     <>
-      <Box
-        sx={[
-          {
-            width: isMobile || isTablet ? "100vw" : "200px",
-          },
-          searchBarWrapper,
-          height,
-        ]}
-      >
+      <Box sx={searchBarWrapper}>
         <form onSubmit={handleSubmit}>
           <Box sx={searchFormWrapper}>
             <Box sx={[height, searchIconWrapper]}>

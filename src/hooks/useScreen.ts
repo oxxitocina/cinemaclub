@@ -14,8 +14,8 @@ export default function useScreen() {
     };
   }, []);
 
-  const isMobile = width <= 768;
-  const isTablet = width <= 1150 && width > 768;
+  const isMobile = width <= 576;
+  const isTablet = width <= 1150 && width > 576;
 
   return {
     isMobile: isMobile,

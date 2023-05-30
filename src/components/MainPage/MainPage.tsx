@@ -15,10 +15,12 @@ import {
   mobileDescriptionWrapper,
 } from "./MainPageStyle";
 import DesktopMainPage from "./DesktopMainPage";
+import SaveIcon from "../UI/SaveIcon/SaveIcon";
+import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
 
 export default function MainPage(props) {
   const data = props.props;
-  const url = `/images/${data.url}`;
+  const url = data.backdrop.url;
   const theme = createTheme(mainPageStyle);
   const { isMobile, isTablet } = useScreen();
 
@@ -41,15 +43,15 @@ export default function MainPage(props) {
                 Подробнее
               </Button>
               <Box>
-                <FavoriteBorderIcon />
+                <SaveIcon id={data.id} />
               </Box>
               <Box>
-                <BookmarkBorderIcon />
+                <BookmarkIcon id={data.id} />
               </Box>
             </Stack>
 
             <Box sx={mobileDescriptionWrapper}>
-              <MainPageDescription />
+              <MainPageDescription description={data.shortDescription} />
             </Box>
           </Box>
         </Box>

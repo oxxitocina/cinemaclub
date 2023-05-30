@@ -1,7 +1,7 @@
 import Select from "@mui/material/Select";
 import useScreen from "../../../../hooks/useScreen";
 import MenuItem from "@mui/material/MenuItem";
-import { dates } from "../../../../mockData/filters";
+import { dates } from "../../../../mockData/filters.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { changeDate } from "../../../../app/slices/sorting/sortingSlice";
 import { changePage } from "../../../../app/slices/pagination/paginationSlice";
@@ -30,7 +30,7 @@ export default function DateSelect() {
         sx={[
           selectStyle,
           {
-            height: isTablet ? "4vw" : isMobile ? "5vw" : "3.5vh",
+            height: isTablet ? "4vw" : isMobile ? "5vw" : "1.75vw",
           },
         ]}
         color="primary"

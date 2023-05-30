@@ -15,9 +15,11 @@ import {
   desktopMovieDescriptionContainer,
   desktopMovieDescriptionWrapper,
 } from "./DesktopMainPageStyle";
+import SaveIcon from "../UI/SaveIcon/SaveIcon";
+import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
 
 export default function DesktopMainPage({ data }) {
-  const url = `/images/${data.url}`;
+  const url = data.backdrop.url;
   return (
     <>
       <Box
@@ -40,10 +42,10 @@ export default function DesktopMainPage({ data }) {
                       Подробнее
                     </Button>
                     <Box>
-                      <FavoriteBorderIcon />
+                      <SaveIcon id={data.id} />
                     </Box>
                     <Box>
-                      <BookmarkBorderIcon />
+                      <BookmarkIcon id={data.id} />
                     </Box>
                   </Stack>
                 </Box>
@@ -58,7 +60,7 @@ export default function DesktopMainPage({ data }) {
                       width: "60%",
                     }}
                   >
-                    <MainPageDescription />
+                    <MainPageDescription description={data.shortDescription} />
                   </Box>
                 </Box>
               </Box>

@@ -36,7 +36,7 @@ export default function MovieCard({ data, gridSize }) {
       <Grid item xs={gridSize}>
         <Paper elevation={4} sx={paperStyle} onClick={handleClick}>
           <Stack direction={"row"} spacing={0}>
-            <img src={URL} alt="" style={{ height: "21vh" }} />
+            <img src={URL} alt="" style={{ height: "13vw" }} />
             <Stack sx={{ width: "100%" }}>
               <Box sx={movieTitleWrapper}>
                 <Box
