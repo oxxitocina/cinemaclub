@@ -4,7 +4,7 @@ import SaveIcon from "../../../components/UI/SaveIcon/SaveIcon";
 import BookmarkIcon from "../../../components/UI/LaterIcon/BookmarkIcon";
 import { useDispatch } from "react-redux";
 import { togglePlayer } from "../../../app/slices/toggleMoviePlayer/toggleMoviePlayerSlice";
-import { blockStyle } from "./MovieThirdBlockStyle";
+import { blockStyle, buttonStyle } from "./MovieThirdBlockStyle";
 
 export default function MovieThirdBlock({ id }) {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ export default function MovieThirdBlock({ id }) {
           onClick={() => {
             dispatch(togglePlayer());
           }}
+          sx={buttonStyle}
         >
           Смотреть
         </Button>

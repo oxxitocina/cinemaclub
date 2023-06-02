@@ -4,3 +4,7 @@ export const blockStyle = {
   gap: 1,
   marginTop: 1,
 };
+
+export const buttonStyle = {
+  minWidth: '100px'
+}

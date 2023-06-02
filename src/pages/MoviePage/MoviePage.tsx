@@ -46,7 +46,9 @@ export default function MoviePage() {
         <Container>
           <Box sx={dataWrapper}>
             <Box sx={{ height: "50vh" }}>
-              <Box sx={{ width: "10vw" }}>
+              <Box sx={{ width: "10vw", "@media (max-width:800px)": {
+                width: "150px"
+              }, }}>
                 <img style={{ width: "100%" }} src={movieData?.logo?.url}></img>
               </Box>
 
