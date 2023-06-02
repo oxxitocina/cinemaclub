@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import { palette } from "./styles/themePalette";
 import { ThemeProvider } from '@mui/material/styles';
+import Box from "@mui/material/Box";
 
 function App() {
   const user = {
@@ -14,8 +15,10 @@ function App() {
   return (
     <>
       <ThemeProvider theme={palette}>
+        <Box sx={{backgroundColor: 'secondary.main'}}>
         <Navbar />
         <Outlet />
+        </Box>
       </ThemeProvider>
     </>
   );

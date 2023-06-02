@@ -1,10 +1,10 @@
 const playerWrapper = {
   maxWidth: "100%",
-  width: "100vw",
-  height: "100vh",
-  zIndex: 90,
+  width: "100%",
+  height: "100%",
+  zIndex: 10000,
   position: "absolute",
-  paddingTop: 8,
+  paddingTop: 0,
 };
 
 const playerButton = {

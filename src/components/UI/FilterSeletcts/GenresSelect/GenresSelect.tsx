@@ -15,7 +15,7 @@ import React, { useState } from "react";
 import useScreen from "../../../../hooks/useScreen";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { selectStyle } from "../FilterSelectsStyle";
+import { selectStyle, labelStyle } from "../FilterSelectsStyle";
 import InputLabel from "@mui/material/InputLabel";
 
 export default function GenresSelect() {
@@ -54,7 +54,7 @@ const MenuProps = {
         <FormControl sx={{"@media (max-width:800px)": {
     width: "100%",
   },}}>
-          <InputLabel id="demo-multiple-checkbox-label" sx={{color: 'white', position: 'absolute', top: '-25%', left: '10px'}}>Жанры</InputLabel>
+          <InputLabel id="demo-multiple-checkbox-label" sx={labelStyle}>Жанры</InputLabel>
           <Select
             labelId="demo-multiple-checkbox-label"
             id="demo-multiple-checkbox"

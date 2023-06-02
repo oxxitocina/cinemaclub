@@ -4,6 +4,7 @@ export const palette = createTheme({
     palette: {
         primary: {
             main: '#ffffff'
+            // main: '#230610'
         },
         secondary: {
             main: '#0d0d0f',
@@ -49,6 +50,21 @@ export const palette = createTheme({
                     backgroundColor: '#0f0811'
                 }
             }
+        },
+        MuiToolbar: {
+            styleOverrides: {
+                root: {
+                    padding: 0
+                }
+            }
+        }
+    },
+    typography: {
+        h1: {
+            fontSize: '5rem',
+            "@media (max-width:900px)": {
+                fontSize: '2rem'
+              },
         }
     }
 })

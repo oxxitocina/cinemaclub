@@ -14,4 +14,15 @@ export const selectStyle = {
   },
 };
 
+export const labelStyle = {
+  color: 'white',
+   position: 'absolute',
+    top: '-25%',
+     left: '10px',
+     "@media (max-width:800px)": {
+      top: 0
+
+    },
+}
+
 

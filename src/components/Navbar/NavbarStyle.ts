@@ -5,7 +5,7 @@ const navbarWrapper = {
   display: "flex",
   alignItems: "center",
   width: "100vw",
-  cursor: "pointer"
+  cursor: "pointer",
 };
 
 const appbarStyle = {
