@@ -4,11 +4,11 @@ export const scrollingPaginationSlice = createSlice({
   name: "scrollingPagination",
   initialState: {
     firstIndex: 0,
-    lastIndex: 10,
+    lastIndex: 24,
   },
   reducers: {
     nextPage: (state) => {
-      state.lastIndex += 12;
+      state.lastIndex += 24;
     },
   },
 });

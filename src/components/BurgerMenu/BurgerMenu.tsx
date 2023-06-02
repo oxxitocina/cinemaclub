@@ -36,6 +36,7 @@ export default function BurgerMenu() {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
+        
       >
         <MenuItem
           onClick={() => {
@@ -43,7 +44,7 @@ export default function BurgerMenu() {
             navigate("/");
           }}
         >
-          <Button>Home</Button>
+          <Button sx={{width: '100%'}}>Home</Button>
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -51,7 +52,7 @@ export default function BurgerMenu() {
             navigate("/movies");
           }}
         >
-          <Button>Movies</Button>
+          <Button sx={{width: '100%'}}>Movies</Button>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <AuthorizationButton />

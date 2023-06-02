@@ -40,8 +40,8 @@ export default function DesktopMainPage({ data }) {
                 <Box sx={desktopInfoContainer}>
                   <MainPageInfo data={data} />
 
-                  <Stack direction={"row"} spacing={2} sx={{ marginTop: 5 }}>
-                    <Button variant="contained" sx={desktopMainPageButton} onClick={() => {
+                  <Stack direction={"row"} spacing={1} sx={{ marginTop: 5 }}>
+                    <Button sx={desktopMainPageButton} onClick={() => {
                       navigate(`/movie/${data.id}`, {
                         replace: true,
                         state: {

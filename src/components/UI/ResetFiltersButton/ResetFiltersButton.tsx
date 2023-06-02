@@ -19,8 +19,10 @@ export default function ResetFiltersButton() {
     <>
       <Button
         variant="contained"
-        sx={{ width: "100%", marginTop: 1 }}
         onClick={handleButtonClick}
+        sx={{"@media (max-width:800px)": {
+          width: "100%",
+        },}}
       >
         Сбросить все фильтры
       </Button>

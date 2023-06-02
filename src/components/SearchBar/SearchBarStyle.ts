@@ -3,14 +3,15 @@ const searchBarWrapper = {
   borderRadius: "3%",
   width: "100vw",
   "@media (min-width:1150px)": {
-    height: "2vw",
+    height: '35.5px',
     width: "200px",
   },
   "@media (max-width:1149px)": {
-    height: "5vw",
+    width: "200px",
   },
-  "@media (max-width:576px)": {
-    height: "6vh",
+  "@media (max-width:800px)": {
+    height: "100%",
+    width: '100%'
   },
 };
 
@@ -25,6 +26,7 @@ const searchIconWrapper = {
   alignItems: "center",
   justifyContent: "center",
   width: "20%",
+  backgroundColor: '#0f0811'
 };
 
 const searchTextFieldStyle = {

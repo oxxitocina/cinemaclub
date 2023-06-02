@@ -45,7 +45,7 @@ export default function GenresSlider() {
                 return (
                   <SwiperSlide>
                     <Box sx={genreItem}>
-                      <Typography>{genre.name}</Typography>
+                      <Typography>{genre.name.charAt(0).toUpperCase() + genre.name.slice(1)}</Typography>
                     </Box>
                   </SwiperSlide>
                 );

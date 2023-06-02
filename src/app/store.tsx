@@ -9,6 +9,7 @@ import authorizationSlice from "./slices/authorization/authorizationSlice";
 import addToFavouritesSlice from "./slices/addToFavourites/addToFavouritesSlice";
 import addToSavedSlice from "./slices/addToLater/addToSavedSlice";
 import toggleMoviePlayerSlice from "./slices/toggleMoviePlayer/toggleMoviePlayerSlice";
+import toggleFiltersSlice from "./slices/toggleFilters/toggleFiltersSlice";
 
 export default configureStore({
   reducer: {
@@ -22,5 +23,6 @@ export default configureStore({
     addToFavourites: addToFavouritesSlice,
     addToSaved: addToSavedSlice,
     toggleMoviePlayer: toggleMoviePlayerSlice,
+    toggleFilters: toggleFiltersSlice,
   },
 });

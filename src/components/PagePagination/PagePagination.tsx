@@ -6,10 +6,12 @@ import {
   pagePaginationTheme,
   pagePaginationWrapper,
 } from "./PagePaginationStyle";
+import useScreen from "../../hooks/useScreen";
 
 export default function PagePagination() {
   const totalPages = useSelector((state) => state.pagination.totalPages);
   const currentPage = useSelector((state) => state.pagination.page);
+  const { isMobile } = useScreen();
   const dispatch = useDispatch();
   const theme = createTheme(pagePaginationTheme);
 
@@ -23,7 +25,7 @@ export default function PagePagination() {
         <Box sx={pagePaginationWrapper}>
           <Pagination
             count={totalPages}
-            size="small"
+            size={isMobile === true ? 'small' : 'medium'}
             color="primary"
             onChange={handleChange}
             page={currentPage}

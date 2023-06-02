@@ -1,7 +1,7 @@
 const pagePaginationTheme = {
   palette: {
     primary: {
-      main: "#1976d2",
+      main: "#782abb",
     },
   },
   components: {
@@ -31,6 +31,7 @@ const pagePaginationWrapper = {
   width: "100%",
   display: "flex",
   justifyContent: "center",
+  marginBottom: 4
 };
 
 export { pagePaginationTheme, pagePaginationWrapper };

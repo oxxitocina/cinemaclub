@@ -13,7 +13,7 @@ const genreItem = {
   textAlign: "center",
   cursor: "pointer",
   "&:hover": {
-    border: "1px solid #1976d2",
+    backgroundColor: '#782abb',
     padding: 0.5,
   },
 };

@@ -1,5 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
+import { palette } from "./styles/themePalette";
+import { ThemeProvider } from '@mui/material/styles';
 
 function App() {
   const user = {
@@ -11,8 +13,10 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Outlet />
+      <ThemeProvider theme={palette}>
+        <Navbar />
+        <Outlet />
+      </ThemeProvider>
     </>
   );
 }

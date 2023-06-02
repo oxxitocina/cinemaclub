@@ -7,7 +7,6 @@ export const toggleMoviePlayerSlice = createSlice({
   },
   reducers: {
     togglePlayer: (state) => {
-      console.log(1);
       state.active = !state.active;
     },
   },

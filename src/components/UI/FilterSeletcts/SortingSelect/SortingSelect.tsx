@@ -9,7 +9,7 @@ import {
   filters,
 } from "../../../../app/slices/sorting/sortingSlice";
 import { selectStyle, typograpthyStyle } from "../FilterSelectsStyle";
-import Typography from "@mui/material/Typography";
+
 
 export default function SortingSelect() {
   const dispatch = useDispatch();
@@ -33,21 +33,20 @@ export default function SortingSelect() {
 
   return (
     <>
-      <Typography variant="subtitle1" component="h2" sx={typograpthyStyle}>
+      {/* <Typography variant="subtitle1" component="h2" sx={typograpthyStyle}>
         Сортировать по:
-      </Typography>
+      </Typography> */}
 
       <Select
-        displayEmpty
-        inputProps={{ "aria-label": "Without label" }}
         sx={[
-          selectStyle,
-          {
-            height: isTablet ? "4vw" : isMobile ? "5vw" : "1.75vw",
-          },
+          selectStyle
         ]}
         onChange={handleChange}
         value={sortingMethod}
+        MenuProps={{PaperProps: {style: {
+          backgroundColor: '#0f0811',
+          color: '#ffffff'
+        }}}}
       >
         {sortingData.map((method) => {
           return <MenuItem value={method.reducer}>{method.name}</MenuItem>;

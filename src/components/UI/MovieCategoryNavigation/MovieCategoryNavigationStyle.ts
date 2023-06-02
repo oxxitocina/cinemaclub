@@ -1,6 +1,6 @@
 export const navigationStyle = {
   color: "white",
-  borderLeft: "3px solid #1976d2",
+  borderLeft: "3px solid #782abb",
   paddingLeft: "10px",
   display: "flex",
   alignItems: "center",

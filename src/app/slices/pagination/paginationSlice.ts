@@ -4,7 +4,7 @@ export const paginationSlice = createSlice({
   name: "pagination",
   initialState: {
     firstIndex: 0,
-    lastIndex: 10,
+    lastIndex: 18,
     totalPages: 4,
     page: 1,
   },
@@ -12,15 +12,15 @@ export const paginationSlice = createSlice({
     firstPage: (state) => {
       state.page = 1;
       state.firstIndex = 0;
-      state.lastIndex = 10;
+      state.lastIndex = 18;
     },
     setTotalPages: (state, action) => {
       state.totalPages = action.payload;
     },
     changePage: (state, action) => {
       state.page = action.payload;
-      state.lastIndex = 10 * action.payload;
-      state.firstIndex = state.lastIndex - 10;
+      state.lastIndex = 18 * action.payload;
+      state.firstIndex = state.lastIndex - 18;
     },
   },
 });

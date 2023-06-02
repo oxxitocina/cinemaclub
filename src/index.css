@@ -3,3 +3,7 @@ body {
   margin: 0;
   background-color: #0d0d0f;
 }
+
+.swiper-pagination-bullet-active {
+  background-color: #782abb !important;
+}

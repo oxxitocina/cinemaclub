@@ -1,8 +1,10 @@
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SearchBar from "../SearchBar/SearchBar";
 import AuthorizationButton from "../UI/AuthorizationButton/AuthorizationButton";
 import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+
 
 export default function NavbarDesktop() {
   const navigate = useNavigate();
@@ -10,25 +12,29 @@ export default function NavbarDesktop() {
   return (
     <>
       <Typography variant="h6" component="div" sx={{ flexGrow: 15 }}>
-        <Button
-          color="inherit"
+      <Box sx={{display: 'flex', gap: '30px'}}> 
+        <Box
+          color="primary"
           onClick={() => {
             navigate("/");
           }}
         >
           Home
-        </Button>
-        <Button
-          color="inherit"
+        </Box>
+        <Box
+          color="secondary"
           onClick={() => {
             navigate("/movies");
           }}
         >
           Movies
-        </Button>
+        </Box>
+        </Box>
       </Typography>
-      <SearchBar />
-      <AuthorizationButton />
+      <Stack direction="row" spacing={1}>
+        <SearchBar />
+        <AuthorizationButton />
+      </Stack>
     </>
   );
 }

@@ -24,7 +24,6 @@ export default function MainPage(props) {
   const dispatch = useDispatch();
   const data = props.props;
   const url = data.backdrop.url;
-  const theme = createTheme(mainPageStyle);
   const { isMobile, isTablet } = useScreen();
 
   function ResponsiveMainPage() {
@@ -73,9 +72,9 @@ export default function MainPage(props) {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+
         <ResponsiveMainPage />
-      </ThemeProvider>
+
     </>
   );
 }

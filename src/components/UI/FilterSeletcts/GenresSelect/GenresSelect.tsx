@@ -16,12 +16,27 @@ import useScreen from "../../../../hooks/useScreen";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { selectStyle } from "../FilterSelectsStyle";
+import InputLabel from "@mui/material/InputLabel";
 
 export default function GenresSelect() {
   const dispatch = useDispatch();
   const { isMobile, isTablet } = useScreen();
   const [currentGenre, setCurrentGenre] = React.useState<string[]>([]);
   const filterGenres = useSelector((state) => state.filtering.genres);
+
+  const ITEM_HEIGHT = 70;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+      backgroundColor: '#0f0811',
+      color: '#ffffff',
+    },
+  },
+  disableScrollLock: true
+};
 
   function handleChange(event) {
     const value = event.target.value[0];
@@ -36,47 +51,32 @@ export default function GenresSelect() {
 
   return (
     <>
-      <Typography variant="subtitle1" component="h2" sx={{ marginTop: 1 }}>
-        Жанры
-      </Typography>
-
-      <Box
-        sx={{
-          ".MuiFormControl-root": {
-            width: "100%",
-          },
-        }}
-      >
-        <FormControl
-          sx={{
-            m: 1,
-            width: 300,
-            margin: 0,
-          }}
-        >
+        <FormControl sx={{"@media (max-width:800px)": {
+    width: "100%",
+  },}}>
+          <InputLabel id="demo-multiple-checkbox-label" sx={{color: 'white', position: 'absolute', top: '-25%', left: '10px'}}>Жанры</InputLabel>
           <Select
-            displayEmpty
-            inputProps={{ "aria-label": "Without label" }}
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
             multiple
+            renderValue={(currentGenre) => currentGenre.join(', ')}
             onChange={handleChange}
-            input={<OutlinedInput label="Жанры" />}
             value={currentGenre}
+            MenuProps={MenuProps}
             sx={[
               selectStyle,
-              {
-                height: isTablet ? "4vw" : isMobile ? "5vw" : "3.5vh",
-              },
             ]}
           >
             {genres.map((genre) => (
-              <MenuItem key={genre.name} value={genre.name}>
+              <MenuItem key={genre.name} value={genre.name} >
                 <Checkbox checked={filterGenres.includes(genre.name)} />
                 <ListItemText primary={genre.name} />
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-      </Box>
+
+        
     </>
   );
 }

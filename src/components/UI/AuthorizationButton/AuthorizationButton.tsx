@@ -16,21 +16,21 @@ export default function AuthorizationButton() {
 
   function renderAuthorizationButton() {
     switch (isUserSignedIn) {
-      case "false":
+      case "true":
+        return (
+          <Button  onClick={handleLogoutClick}>
+            Logout
+          </Button>
+        );
+      default:
         return (
           <Button
-            color="inherit"
+            color="primary"
             onClick={() => {
               navigate("/login");
             }}
           >
             Login
-          </Button>
-        );
-      case "true":
-        return (
-          <Button color="inherit" onClick={handleLogoutClick}>
-            Logout
           </Button>
         );
     }

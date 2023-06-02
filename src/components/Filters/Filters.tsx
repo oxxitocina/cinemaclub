@@ -27,6 +27,7 @@ export default function Filters() {
       <Box
         sx={{
           width: "100%",
+          height: '100%'
         }}
       >
         <Paper elevation={3} sx={paperStyle}>

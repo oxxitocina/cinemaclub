@@ -15,7 +15,7 @@ export default function LoadMoreButton() {
     <>
       <Box sx={buttonWrapper}>
         <Button onClick={handleClick} variant="contained">
-          ... Загрузить еще
+          Загрузить еще
         </Button>
       </Box>
     </>

@@ -6,7 +6,7 @@ import LoadMoreButton from "../UI/LoadMoreButton/LoadMoreButton";
 import { movieListWrapper } from "./MainPageMoviesListStyle";
 
 export default function MainPageMoviesList() {
-  const { isTablet } = useScreen();
+  const { isMobile ,isTablet } = useScreen();
 
   return (
     <>
@@ -15,7 +15,7 @@ export default function MainPageMoviesList() {
 
         <Box sx={movieListWrapper}>
           <MoviesList
-            gridItemSize={isTablet === true ? 3 : 6}
+            gridItemSize={isTablet === true ? 3 : isMobile ? 6 : 2}
             paginationType="scroll"
           />
         </Box>

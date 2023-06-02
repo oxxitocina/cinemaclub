@@ -15,7 +15,7 @@ export default function useScreen() {
   }, []);
 
   const isMobile = width <= 576;
-  const isTablet = width <= 1150 && width > 576;
+  const isTablet = width <= 800 && width > 576;
 
   return {
     isMobile: isMobile,

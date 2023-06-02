@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeDate } from "../../../../app/slices/sorting/sortingSlice";
 import { changePage } from "../../../../app/slices/pagination/paginationSlice";
 import { selectStyle, typograpthyStyle } from "../FilterSelectsStyle";
-import Typography from "@mui/material/Typography";
 
 export default function DateSelect() {
   const dispatch = useDispatch();
@@ -20,22 +19,24 @@ export default function DateSelect() {
 
   return (
     <>
-      <Typography variant="subtitle1" component="h2" sx={typograpthyStyle}>
-        Год релиза:
-      </Typography>
-
       <Select
         displayEmpty
         inputProps={{ "aria-label": "Without label" }}
         sx={[
           selectStyle,
           {
-            height: isTablet ? "4vw" : isMobile ? "5vw" : "1.75vw",
+            border: 'none'
           },
         ]}
+        
         color="primary"
         value={dateSorting}
         onChange={handleChange}
+        MenuProps={{PaperProps: {style: {
+          backgroundColor: '#0f0811',
+          color: '#ffffff',
+          height: '200px'
+        }}}}
       >
         <MenuItem value="all">
           <em>Все</em>

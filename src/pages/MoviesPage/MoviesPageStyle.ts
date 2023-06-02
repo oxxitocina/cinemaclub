@@ -1,10 +1,12 @@
 const MobileFilterWrapper = {
   position: "absolute",
-  top: 130,
-  zIndex: 90,
+  top: 0,
+  zIndex: 10,
   width: "100vw",
-  height: "100vh",
+  minHeight: "100vh",
   justifyContent: "center",
+  backgroundColor: 'secondary.main',
+  overflow: 'scroll'
 };
 
 const DesktopFilterWrapper = {

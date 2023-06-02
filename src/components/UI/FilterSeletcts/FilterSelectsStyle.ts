@@ -1,13 +1,17 @@
 export const selectStyle = {
-  width: "100%",
-  marginTop: 0.5,
-  border: "1px solid white",
+  minWidth: '120px',
+  height: '100%',
+  border: "none",
   color: "white",
   ".MuiSelect-icon": {
     color: "white",
   },
+  "&:hover": {
+    border: '1px solid #782abb'
+  },
+  "@media (max-width:800px)": {
+    width: "100%",
+  },
 };
 
-export const typograpthyStyle = {
-  paddingTop: 2,
-};
+

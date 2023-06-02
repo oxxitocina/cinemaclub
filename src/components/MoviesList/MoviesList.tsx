@@ -17,7 +17,7 @@ export default function MoviesList({ gridItemSize, paginationType }) {
   const { isMobile, isTablet } = useScreen();
 
   const temp2 = getSortedMoviesArray();
-  const totalPages = Math.ceil(temp2.length / 10);
+  const totalPages = Math.ceil(temp2.length / 18);
   dispatch(setTotalPages(totalPages));
 
   const movies =
@@ -32,7 +32,7 @@ export default function MoviesList({ gridItemSize, paginationType }) {
       });
     }
     return movies.map((movie) => {
-      return <MovieCard data={movie} gridSize={gridItemSize} />;
+      return <MovieCardFull data={movie} gridSize={gridItemSize} />;
     });
   }
 
