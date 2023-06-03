@@ -2,7 +2,7 @@ const mainPage = {
   boxSizing: "border-box",
   maxWidth: "100%",
   width: "100vw",
-  height: '100%',
+  height: '100vh',
   paddingTop: "6vh",
   backgroundSize: "cover",
   backgroundPosition: "center top",
@@ -11,7 +11,7 @@ const mainPage = {
 const dataWrapper = {
   color: "white",
   display: "flex",
-  height: "100vh",
+  height: "100%",
   alignItems: "center",
 };
 
