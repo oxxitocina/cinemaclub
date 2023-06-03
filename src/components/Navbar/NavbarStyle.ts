@@ -10,7 +10,7 @@ const navbarWrapper = {
 
 const appbarStyle = {
   backgroundColor: "secondary.main",
-  color: 'primary.main',
+  color: "primary.main",
   borderBottom: "2px solid #1a171e",
 };
 

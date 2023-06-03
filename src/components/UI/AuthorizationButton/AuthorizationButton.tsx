@@ -5,22 +5,22 @@ import { setAuthorization } from "../../../app/slices/authorization/authorizatio
 import { buttonStyle } from "./AuthorizationButtonStyle";
 
 export default function AuthorizationButton() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isUserSignedIn = useSelector(
     (state) => state.authorization.isUserSignedIn
   );
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   function handleLogoutClick() {
     dispatch(setAuthorization("false"));
   }
 
-  function renderAuthorizationButton() {
+  function RenderAuthorizationButton() {
     switch (isUserSignedIn) {
       case "true":
         return (
           <Button sx={buttonStyle} onClick={handleLogoutClick}>
-            Logout
+            Выйти
           </Button>
         );
       default:
@@ -32,11 +32,15 @@ export default function AuthorizationButton() {
               navigate("/login");
             }}
           >
-            Login
+            Вход
           </Button>
         );
     }
   }
 
-  return <>{renderAuthorizationButton()}</>;
+  return (
+    <>
+      <RenderAuthorizationButton />
+    </>
+  );
 }

@@ -31,7 +31,7 @@ const pagePaginationWrapper = {
   width: "100%",
   display: "flex",
   justifyContent: "center",
-  marginBottom: 4
+  marginBottom: 4,
 };
 
 export { pagePaginationTheme, pagePaginationWrapper };

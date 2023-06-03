@@ -15,7 +15,7 @@ const mainPageStyle = {
 const mobilePageWrapper = {
   maxWidth: "100%",
   width: "100vw",
-  minHeight: '500px',
+  minHeight: "500px",
   height: "100vh",
   color: "white",
   backgroundSize: "cover",

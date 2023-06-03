@@ -12,12 +12,9 @@ import { useState } from "react";
 import NavbarDesktop from "./NavbarDesktop";
 import { navbarWrapper, appbarStyle } from "./NavbarStyle";
 
-
 export default function ButtonAppBar() {
   const { isMobile, isTablet } = useScreen();
   const [activeSearch, setActiveSearch] = useState(false);
-
-
 
   function MobileSearchInput() {
     if (activeSearch) {
@@ -35,16 +32,16 @@ export default function ButtonAppBar() {
     if (isTablet || isMobile === true) {
       return (
         <>
-        <Box sx={{gap: '10px', display: 'flex'}}> 
-          <Button
-            onClick={() => {
-              setActiveSearch(!activeSearch);
-            }}
-          >
-            <SearchIcon />
-          </Button>
+          <Box sx={{ gap: "10px", display: "flex" }}>
+            <Button
+              onClick={() => {
+                setActiveSearch(!activeSearch);
+              }}
+            >
+              <SearchIcon />
+            </Button>
 
-          <BurgerMenu />
+            <BurgerMenu />
           </Box>
         </>
       );

@@ -6,5 +6,5 @@ export const blockStyle = {
 };
 
 export const buttonStyle = {
-  minWidth: '100px'
-}
+  minWidth: "100px",
+};

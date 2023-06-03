@@ -5,8 +5,8 @@ const MobileFilterWrapper = {
   width: "100vw",
   minHeight: "100vh",
   justifyContent: "center",
-  backgroundColor: 'secondary.main',
-  overflow: 'scroll'
+  backgroundColor: "secondary.main",
+  overflow: "scroll",
 };
 
 const DesktopFilterWrapper = {

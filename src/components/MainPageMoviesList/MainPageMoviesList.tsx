@@ -6,7 +6,7 @@ import LoadMoreButton from "../UI/LoadMoreButton/LoadMoreButton";
 import { movieListWrapper } from "./MainPageMoviesListStyle";
 
 export default function MainPageMoviesList() {
-  const { isMobile ,isTablet } = useScreen();
+  const { isMobile, isTablet } = useScreen();
 
   return (
     <>

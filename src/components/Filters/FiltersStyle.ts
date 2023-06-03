@@ -1,8 +1,8 @@
 const paperStyle = {
   backgroundColor: "#1a171e",
   color: "white",
-  height: '100vw',
-  width: '100vw'
+  height: "100vw",
+  width: "100vw",
 };
 
 const filtersWrapper = {

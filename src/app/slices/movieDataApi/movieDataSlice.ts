@@ -202,7 +202,7 @@ export const movieDataSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchMovieById.pending, (state) => {
-        (state.loading = "loading");
+        state.loading = "loading";
       })
       .addCase(fetchMovieById.fulfilled, (state, action) => {
         (state.loading = "idle"), (state.movieData = action.payload);

@@ -12,7 +12,10 @@ import {
 } from "./GenresSliderStyle";
 import MovieCategoryNavigation from "../UI/MovieCategoryNavigation/MovieCategoryNavigation";
 import { useDispatch, useSelector } from "react-redux";
-import { addGenre, removeGenre } from "../../app/slices/filtering/filteringSlice";
+import {
+  addGenre,
+  removeGenre,
+} from "../../app/slices/filtering/filteringSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function GenresSlider() {
@@ -20,13 +23,13 @@ export default function GenresSlider() {
   const navigate = useNavigate();
   const filterGenres = useSelector((state) => state.filtering.genres);
 
-  function handleClick(genre)  {
+  function handleClick(genre) {
     if (filterGenres.includes(genre)) {
       dispatch(removeGenre(genre));
     } else {
       dispatch(addGenre(genre));
     }
-    navigate('/movies');
+    navigate("/movies");
   }
 
   return (
@@ -59,9 +62,17 @@ export default function GenresSlider() {
             <Box sx={genreItemWrapper}>
               {genres.map((genre) => {
                 return (
-                  <SwiperSlide key={genre.id} onClick={() => {handleClick(genre.name)}}>
+                  <SwiperSlide
+                    key={genre.id}
+                    onClick={() => {
+                      handleClick(genre.name);
+                    }}
+                  >
                     <Box sx={genreItem}>
-                      <Typography>{genre.name.charAt(0).toUpperCase() + genre.name.slice(1)}</Typography>
+                      <Typography>
+                        {genre.name.charAt(0).toUpperCase() +
+                          genre.name.slice(1)}
+                      </Typography>
                     </Box>
                   </SwiperSlide>
                 );

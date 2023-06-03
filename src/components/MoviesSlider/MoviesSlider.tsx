@@ -22,7 +22,7 @@ export default function MoviesSlider() {
           <ArrowBack small={true} />
           <ArrowForward small={true} />
         </>
-      )
+      );
     }
   }
 
@@ -56,7 +56,7 @@ export default function MoviesSlider() {
               },
             }}
           >
-            <ResponsiveArrows/>
+            <ResponsiveArrows />
 
             {movies.map((movie) => {
               return (

@@ -5,8 +5,8 @@ const playerWrapper = {
   zIndex: 10000,
   position: "absolute",
   paddingTop: 0,
-  display: 'flex',
-  alignItems: 'center',
+  display: "flex",
+  alignItems: "center",
 };
 
 const playerButton = {

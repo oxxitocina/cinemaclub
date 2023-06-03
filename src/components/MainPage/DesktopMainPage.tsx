@@ -41,15 +41,18 @@ export default function DesktopMainPage({ data }) {
                   <MainPageInfo data={data} />
 
                   <Stack direction={"row"} spacing={1} sx={{ marginTop: 5 }}>
-                    <Button sx={desktopMainPageButton} onClick={() => {
-                      navigate(`/movie/${data.id}`, {
-                        replace: true,
-                        state: {
-                          movieData: data,
-                        },
-                      });
-                      dispatch(fetchMovieById(data.id));
-                    }}>
+                    <Button
+                      sx={desktopMainPageButton}
+                      onClick={() => {
+                        navigate(`/movie/${data.id}`, {
+                          replace: true,
+                          state: {
+                            movieData: data,
+                          },
+                        });
+                        dispatch(fetchMovieById(data.id));
+                      }}
+                    >
                       Подробнее
                     </Button>
                     <Box>

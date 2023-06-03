@@ -2,7 +2,7 @@ const mainPage = {
   boxSizing: "border-box",
   maxWidth: "100%",
   width: "100vw",
-  height: '100vh',
+  height: "100vh",
   paddingTop: "6vh",
   backgroundSize: "cover",
   backgroundPosition: "center top",
@@ -25,9 +25,8 @@ const descriptionWrapper = {
   width: "30vw",
   marginTop: 2,
   "@media (max-width:800px)": {
-    width: '100%'
+    width: "100%",
   },
-  
 };
 
 export { mainPage, dataWrapper, firstTitleWrapper, descriptionWrapper };

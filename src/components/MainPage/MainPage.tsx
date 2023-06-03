@@ -41,15 +41,19 @@ export default function MainPage(props) {
             <MainPageInfo data={data} />
 
             <Stack direction={"row"} spacing={2} sx={{ marginTop: 2 }}>
-              <Button variant="contained" sx={mainPageButton} onClick={() => {
-                navigate(`/movie/${data.id}`, {
-                  replace: true,
-                  state: {
-                    movieData: data,
-                  },
-                });
-                dispatch(fetchMovieById(data.id));
-              }}>
+              <Button
+                variant="contained"
+                sx={mainPageButton}
+                onClick={() => {
+                  navigate(`/movie/${data.id}`, {
+                    replace: true,
+                    state: {
+                      movieData: data,
+                    },
+                  });
+                  dispatch(fetchMovieById(data.id));
+                }}
+              >
                 Подробнее
               </Button>
               <Box>
@@ -72,9 +76,7 @@ export default function MainPage(props) {
 
   return (
     <>
-
-        <ResponsiveMainPage />
-
+      <ResponsiveMainPage />
     </>
   );
 }

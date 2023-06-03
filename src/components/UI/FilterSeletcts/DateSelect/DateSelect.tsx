@@ -1,15 +1,13 @@
 import Select from "@mui/material/Select";
-import useScreen from "../../../../hooks/useScreen";
 import MenuItem from "@mui/material/MenuItem";
 import { dates } from "../../../../mockData/filters.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { changeDate } from "../../../../app/slices/sorting/sortingSlice";
 import { changePage } from "../../../../app/slices/pagination/paginationSlice";
-import { selectStyle, typograpthyStyle } from "../FilterSelectsStyle";
+import { selectStyle } from "../FilterSelectsStyle";
 
 export default function DateSelect() {
   const dispatch = useDispatch();
-  const { isMobile, isTablet } = useScreen();
   const dateSorting = useSelector((state) => state.sorting.dateSorting);
 
   function handleChange(event) {
@@ -25,18 +23,21 @@ export default function DateSelect() {
         sx={[
           selectStyle,
           {
-            border: 'none'
+            border: "none",
           },
         ]}
-        
         color="primary"
         value={dateSorting}
         onChange={handleChange}
-        MenuProps={{PaperProps: {style: {
-          backgroundColor: '#0f0811',
-          color: '#ffffff',
-          height: '200px'
-        }}}}
+        MenuProps={{
+          PaperProps: {
+            style: {
+              backgroundColor: "#0f0811",
+              color: "#ffffff",
+              height: "200px",
+            },
+          },
+        }}
       >
         <MenuItem value="all">
           <em>Все</em>

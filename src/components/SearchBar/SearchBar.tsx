@@ -32,7 +32,7 @@ export default function SearchBar() {
   return (
     <>
       <Box sx={searchBarWrapper}>
-        <form onSubmit={handleSubmit} style={{height: '100%'}}>
+        <form onSubmit={handleSubmit} style={{ height: "100%" }}>
           <Box sx={searchFormWrapper}>
             <Box sx={[height, searchIconWrapper]}>
               <SearchIcon type="submit" />
@@ -40,7 +40,7 @@ export default function SearchBar() {
 
             <TextField
               variant="standard"
-              placeholder="search"
+              placeholder="поиск"
               onChange={(event) => {
                 setSearchQuery(event.target.value);
               }}

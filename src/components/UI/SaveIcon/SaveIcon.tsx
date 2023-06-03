@@ -1,13 +1,14 @@
-import { React, useEffect } from "react";
-import styles from "./SaveIcon.module.scss";
+import Box from "@mui/material/Box";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { iconStyle } from "./SaveIconStyle";
 import {
   addToFavourites,
   removeFromFavourites,
 } from "../../../app/slices/addToFavourites/addToFavouritesSlice";
-import { useNavigate } from "react-router-dom";
 
 export default function SaveIcon({ id }) {
   const dispatch = useDispatch();
@@ -26,50 +27,42 @@ export default function SaveIcon({ id }) {
     );
   }, [favouriteMovies]);
 
-  function checkAuthorization() {
-    if (isUserSignedIn === "false") {
-      return false;
-    }
-  }
-
   function handleClick(event) {
     event.stopPropagation();
     navigate("/login");
   }
 
-  function renderSaveButton() {
-    if (checkAuthorization() === false) {
-      return (
-        <div onClick={handleClick} className={styles.iconSave}>
-          <FavoriteBorderIcon />
-        </div>
-      );
-    }
-    if (favouriteMovies.includes(id)) {
-      return (
-        <div onClick={removeMovie} className={styles.iconSave}>
-          <FavoriteIcon />
-        </div>
-      );
-    } else {
-      return (
-        <div onClick={addMovie} className={styles.iconSave}>
-          <FavoriteBorderIcon />
-        </div>
-      );
-    }
-  }
-
   function addMovie(event) {
     event.stopPropagation();
-    checkAuthorization();
     dispatch(addToFavourites(id));
   }
 
   function removeMovie(event) {
     event.stopPropagation();
-    checkAuthorization();
     dispatch(removeFromFavourites(id));
+  }
+
+  function renderSaveButton() {
+    if (isUserSignedIn === "false") {
+      return (
+        <Box onClick={handleClick} sx={iconStyle}>
+          <FavoriteBorderIcon />
+        </Box>
+      );
+    }
+    if (favouriteMovies.includes(id)) {
+      return (
+        <Box onClick={removeMovie} sx={iconStyle}>
+          <FavoriteIcon />
+        </Box>
+      );
+    } else {
+      return (
+        <Box onClick={addMovie} sx={iconStyle}>
+          <FavoriteBorderIcon />
+        </Box>
+      );
+    }
   }
 
   return <>{renderSaveButton()}</>;

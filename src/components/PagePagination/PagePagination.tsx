@@ -25,7 +25,7 @@ export default function PagePagination() {
         <Box sx={pagePaginationWrapper}>
           <Pagination
             count={totalPages}
-            size={isMobile === true ? 'small' : 'medium'}
+            size={isMobile === true ? "small" : "medium"}
             color="primary"
             onChange={handleChange}
             page={currentPage}
