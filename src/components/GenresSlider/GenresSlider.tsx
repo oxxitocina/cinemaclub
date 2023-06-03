@@ -11,8 +11,24 @@ import {
   genreSliderWrapper,
 } from "./GenresSliderStyle";
 import MovieCategoryNavigation from "../UI/MovieCategoryNavigation/MovieCategoryNavigation";
+import { useDispatch, useSelector } from "react-redux";
+import { addGenre, removeGenre } from "../../app/slices/filtering/filteringSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function GenresSlider() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const filterGenres = useSelector((state) => state.filtering.genres);
+
+  function handleClick(genre)  {
+    if (filterGenres.includes(genre)) {
+      dispatch(removeGenre(genre));
+    } else {
+      dispatch(addGenre(genre));
+    }
+    navigate('/movies');
+  }
+
   return (
     <>
       <Box sx={genreSliderWrapper}>
@@ -43,7 +59,7 @@ export default function GenresSlider() {
             <Box sx={genreItemWrapper}>
               {genres.map((genre) => {
                 return (
-                  <SwiperSlide>
+                  <SwiperSlide onClick={() => {handleClick(genre.name)}}>
                     <Box sx={genreItem}>
                       <Typography>{genre.name.charAt(0).toUpperCase() + genre.name.slice(1)}</Typography>
                     </Box>

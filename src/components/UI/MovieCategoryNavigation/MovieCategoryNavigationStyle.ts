@@ -4,5 +4,4 @@ export const navigationStyle = {
   paddingLeft: "10px",
   display: "flex",
   alignItems: "center",
-  cursor: "pointer",
 };
