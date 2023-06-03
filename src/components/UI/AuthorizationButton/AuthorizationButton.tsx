@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthorization } from "../../../app/slices/authorization/authorizationSlice";
+import { buttonStyle } from "./AuthorizationButtonStyle";
 
 export default function AuthorizationButton() {
   const isUserSignedIn = useSelector(
@@ -18,7 +19,7 @@ export default function AuthorizationButton() {
     switch (isUserSignedIn) {
       case "true":
         return (
-          <Button  onClick={handleLogoutClick}>
+          <Button sx={buttonStyle} onClick={handleLogoutClick}>
             Logout
           </Button>
         );
@@ -26,10 +27,10 @@ export default function AuthorizationButton() {
         return (
           <Button
             color="primary"
+            sx={buttonStyle}
             onClick={() => {
               navigate("/login");
             }}
-            sx={{width: '100%'}}
           >
             Login
           </Button>
