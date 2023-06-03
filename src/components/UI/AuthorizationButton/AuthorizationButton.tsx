@@ -29,6 +29,7 @@ export default function AuthorizationButton() {
             onClick={() => {
               navigate("/login");
             }}
+            sx={{width: '100%'}}
           >
             Login
           </Button>

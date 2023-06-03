@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 
 export function sortByRating(movies) {
-  console.log(movies);
   const method = useSelector((state) => state.sorting.selectSortingMethod);
 
   function compareMovies(firstObject, secondObject) {

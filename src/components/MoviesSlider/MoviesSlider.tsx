@@ -9,9 +9,23 @@ import MovieCategoryNavigation from "../UI/MovieCategoryNavigation/MovieCategory
 import "swiper/css";
 import { Box } from "@mui/material";
 import { movieSliderStyle } from "./MovieSliderStyle";
+import useScreen from "../../hooks/useScreen";
 
 export default function MoviesSlider() {
   const movies = data.slice(0, 25);
+  const { isMobile, isTablet } = useScreen();
+  console.log(isMobile)
+
+  function ResponsiveArrows() {
+    if (isMobile === false) {
+      return (
+        <>
+          <ArrowBack small={true} />
+          <ArrowForward small={true} />
+        </>
+      )
+    }
+  }
 
   return (
     <>
@@ -43,8 +57,7 @@ export default function MoviesSlider() {
               },
             }}
           >
-            <ArrowBack small={true} />
-            <ArrowForward small={true} />
+            <ResponsiveArrows/>
 
             {movies.map((movie) => {
               return (
