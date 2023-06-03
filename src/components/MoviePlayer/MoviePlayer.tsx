@@ -19,14 +19,17 @@ export default function MoviePlayer({ id }) {
           X
         </Button>
 
+          
         <div
           id="yohoho"
           data-kinopoisk={id}
           style={{
-            width: "100vw",
-            height: "100vh",
+            width: "100%",
+            height: "100%",
           }}
         ></div>
+
+        
 
         <Helmet>
           <script src="//yohoho.cc/yo.js"></script>

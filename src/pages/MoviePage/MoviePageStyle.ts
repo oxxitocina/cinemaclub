@@ -2,6 +2,7 @@ const mainPage = {
   boxSizing: "border-box",
   maxWidth: "100%",
   width: "100vw",
+  height: '100%',
   paddingTop: "6vh",
   backgroundSize: "cover",
   backgroundPosition: "center top",
