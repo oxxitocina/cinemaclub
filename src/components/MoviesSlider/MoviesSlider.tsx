@@ -13,8 +13,7 @@ import useScreen from "../../hooks/useScreen";
 
 export default function MoviesSlider() {
   const movies = data.slice(0, 25);
-  const { isMobile, isTablet } = useScreen();
-  console.log(isMobile)
+  const { isMobile } = useScreen();
 
   function ResponsiveArrows() {
     if (isMobile === false) {
@@ -61,7 +60,7 @@ export default function MoviesSlider() {
 
             {movies.map((movie) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={movie.id}>
                   <MovieCardFull data={movie} />
                 </SwiperSlide>
               );

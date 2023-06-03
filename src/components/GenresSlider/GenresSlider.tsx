@@ -59,7 +59,7 @@ export default function GenresSlider() {
             <Box sx={genreItemWrapper}>
               {genres.map((genre) => {
                 return (
-                  <SwiperSlide onClick={() => {handleClick(genre.name)}}>
+                  <SwiperSlide key={genre.id} onClick={() => {handleClick(genre.name)}}>
                     <Box sx={genreItem}>
                       <Typography>{genre.name.charAt(0).toUpperCase() + genre.name.slice(1)}</Typography>
                     </Box>

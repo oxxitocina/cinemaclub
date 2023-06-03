@@ -14,7 +14,6 @@ export default function MoviesList({ gridItemSize, paginationType }) {
   const lastIndex = useSelector((state) => state.scrollingPagination.lastIndex);
   const firstIndexPage = useSelector((state) => state.pagination.firstIndex);
   const lastIndexPage = useSelector((state) => state.pagination.lastIndex);
-  const { isMobile, isTablet } = useScreen();
 
   const temp2 = getSortedMoviesArray();
   const totalPages = Math.ceil(temp2.length / 18);
@@ -25,22 +24,15 @@ export default function MoviesList({ gridItemSize, paginationType }) {
       ? data.slice(0, lastIndex)
       : temp2.slice(firstIndexPage, lastIndexPage);
 
-  function ResponsiveMovieCard() {
-    if (isTablet === true || isMobile === true) {
-      return movies.map((movie) => {
-        return <MovieCardFull data={movie} gridSize={gridItemSize} />;
-      });
-    }
-    return movies.map((movie) => {
-      return <MovieCardFull data={movie} gridSize={gridItemSize} />;
-    });
-  }
-
   return (
     <>
       <Box sx={movieListWrapper}>
         <Grid container spacing={3}>
-          {ResponsiveMovieCard()}
+          {movies.map((movie) => {
+          return (
+            <MovieCardFull key={movie.id} data={movie} gridSize={gridItemSize} />
+          )
+          })}
         </Grid>
       </Box>
     </>
