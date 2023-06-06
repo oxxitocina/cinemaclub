@@ -1,12 +1,10 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { ThemeProvider, createTheme } from "@mui/material";
 import Button from "@mui/material/Button";
 import useScreen from "../../hooks/useScreen";
 import MainPageDescription from "./MainPageDescription/MainPageDescription";
 import MainPageInfo from "./MainPageInfo/MainPageInfo";
 import {
-  mainPageStyle,
   mobilePageWrapper,
   mobileInfoWrapper,
   mainPageButton,
@@ -20,7 +18,7 @@ import { useDispatch } from "react-redux";
 import { fetchMovieById } from "../../app/slices/movieDataApi/movieDataSlice";
 import { Imovie } from "../../app/slices/movieDataApi/movieDataSlice";
 
-export default function MainPage(props: {props: Imovie}) {
+export default function MainPage(props: { props: Imovie }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = props.props;
@@ -58,7 +56,7 @@ export default function MainPage(props: {props: Imovie}) {
                 Подробнее
               </Button>
               <Box>
-                <SaveIcon id ={data.id} />
+                <SaveIcon id={data.id} />
               </Box>
               <Box>
                 <BookmarkIcon id={data.id} />

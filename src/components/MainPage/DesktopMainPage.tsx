@@ -20,10 +20,10 @@ import { useAppDispatch } from "../../app/store";
 import { fetchMovieById } from "../../app/slices/movieDataApi/movieDataSlice";
 import { Imovie } from "../../app/slices/movieDataApi/movieDataSlice";
 
-export default function DesktopMainPage({ data }) {
+export default function DesktopMainPage({ data }: { data: Imovie }) {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const url = data.backdrop.url;
+  const url = data?.backdrop?.url;
   return (
     <>
       <Box
@@ -75,7 +75,7 @@ export default function DesktopMainPage({ data }) {
                       width: "60%",
                     }}
                   >
-                    <MainPageDescription description={data.shortDescription} />
+                    <MainPageDescription description={data?.shortDescription} />
                   </Box>
                 </Box>
               </Box>

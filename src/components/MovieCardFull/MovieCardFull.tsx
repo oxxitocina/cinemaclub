@@ -12,8 +12,14 @@ import {
   movieImageStyle,
   typographyStyle,
 } from "./MovieCardFullStyle";
+import { Imovie } from "../../app/slices/movieDataApi/movieDataSlice";
 
-export default function MovieCardFull({ data, gridSize }) {
+interface ComponentProps {
+  data: Imovie;
+  gridSize: number;
+}
+
+export default function MovieCardFull({ data, gridSize }: ComponentProps) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const URL = data.poster.url;

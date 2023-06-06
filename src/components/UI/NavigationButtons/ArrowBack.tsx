@@ -2,7 +2,7 @@ import { useSwiper } from "swiper/react";
 import styles from "./NavigationButtons.module.scss";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
-export default function SlideNextButton({ small }) {
+export default function SlideNextButton({ small }: { small: boolean }) {
   const swiper = useSwiper();
 
   return (

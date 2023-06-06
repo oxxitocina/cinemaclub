@@ -9,12 +9,12 @@ import { MobileFilterWrapper, DesktopFilterWrapper } from "./MoviesPageStyle";
 import FiltersDesktop from "../../components/Filters/FiltersDesktop";
 import FiltersMobile from "../../components/Filters/FiltersMobile";
 import { toggleFilter } from "../../app/slices/toggleFilters/toggleFiltersSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../app/store";
 
 export default function MoviesPage() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { isMobile, isTablet } = useScreen();
-  const showFilter = useSelector((state) => state.toggleFilters.active);
+  const showFilter = useAppSelector((state) => state.toggleFilters.active);
 
   function handleClick() {
     dispatch(toggleFilter());
@@ -30,18 +30,22 @@ export default function MoviesPage() {
         </>
       );
     }
+    return <></>;
   }
 
   function BurgerMenu() {
     if (isTablet || isMobile === true) {
       return (
-        <Box sx={{ marginBottom: 2, display: "flex", justifyContent: "end" }}>
-          <Button onClick={handleClick}>
-            <TuneIcon />
-          </Button>
-        </Box>
+        <>
+          <Box sx={{ marginBottom: 2, display: "flex", justifyContent: "end" }}>
+            <Button onClick={handleClick}>
+              <TuneIcon />
+            </Button>
+          </Box>
+        </>
       );
     }
+    return <></>;
   }
 
   return (

@@ -19,10 +19,13 @@ export default function MoviesSlider() {
     if (isMobile === false) {
       return (
         <>
+          (
           <ArrowBack small={true} />
-          <ArrowForward small={true} />
+          <ArrowForward small={true} />)
         </>
       );
+    } else {
+      return <></>;
     }
   }
 
@@ -61,7 +64,7 @@ export default function MoviesSlider() {
             {movies.map((movie) => {
               return (
                 <SwiperSlide key={movie.id}>
-                  <MovieCardFull data={movie} />
+                  <MovieCardFull data={movie} gridSize={12} />
                 </SwiperSlide>
               );
             })}

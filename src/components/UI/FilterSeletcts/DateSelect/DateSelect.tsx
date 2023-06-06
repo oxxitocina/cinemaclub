@@ -1,16 +1,16 @@
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { dates } from "../../../../mockData/filters.ts";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../../app/store.tsx";
 import { changeDate } from "../../../../app/slices/sorting/sortingSlice";
 import { changePage } from "../../../../app/slices/pagination/paginationSlice";
 import { selectStyle } from "../FilterSelectsStyle";
 
 export default function DateSelect() {
-  const dispatch = useDispatch();
-  const dateSorting = useSelector((state) => state.sorting.dateSorting);
+  const dispatch = useAppDispatch();
+  const dateSorting = useAppSelector((state) => state.sorting.dateSorting);
 
-  function handleChange(event) {
+  function handleChange(event: { target: { value: string } }) {
     dispatch(changePage(1));
     dispatch(changeDate(event.target.value));
   }

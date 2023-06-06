@@ -17,21 +17,21 @@ export const fetchMovieById = createAsyncThunk(
 
 export interface Imovie {
   externalId: {
-    kpHD: string;
-    imdb: string;
-    tmdb: number;
+    kpHD?: string | null;
+    imdb?: string | null;
+    tmdb?: number | null;
   };
   rating: {
     kp: number;
     imdb: number;
     filmCritics: number;
     russianFilmCritics: number;
-    await: null;
+    await: number | null;
   };
   backdrop?: {
-    url: string,
-    previewUrl: string
-  },
+    url: string;
+    previewUrl: string;
+  };
   votes: {
     kp: number;
     imdb: number;
@@ -39,7 +39,7 @@ export interface Imovie {
     russianFilmCritics: number;
     await: number;
   };
-  movieLength: number;
+  movieLength: number | null;
   id: number;
   type: string;
   name: string;
@@ -51,25 +51,27 @@ export interface Imovie {
   };
   genres: { name: string }[];
   countries: { name: string }[];
-  alternativeName: string;
-  enName: null;
-  names: {
-    name: string;
-    language?: string;
+  alternativeName: string | null;
+  enName?: string | null;
+  names?: {
+    name?: string | null;
+    language?: string | null;
     type?: string | null;
   }[];
-  shortDescription: string;
+  shortDescription: string | null;
   logo?: {
-    url: string;
+    url?: string | null;
   };
   watchability: {
-    items: {
-      name: string;
-      logo: {
-        url: string;
-      };
-      url: string;
-    }[];
+    items:
+      | {
+          name: string;
+          logo?: {
+            url?: string | null;
+          };
+          url: string;
+        }[]
+      | null;
   };
 }
 

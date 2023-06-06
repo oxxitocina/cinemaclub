@@ -1,10 +1,8 @@
-import { React } from "react";
 import { useSwiper } from "swiper/react";
 import styles from "./NavigationButtons.module.scss";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Box from "@mui/material/Box";
 
-export default function SlideNextButton({ small }) {
+export default function SlideNextButton({ small }: { small: boolean }) {
   const swiper = useSwiper();
 
   return (

@@ -8,13 +8,13 @@ import SearchBar from "../SearchBar/SearchBar";
 import useScreen from "../../hooks/useScreen";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
 import NavbarDesktop from "./NavbarDesktop";
 import { navbarWrapper, appbarStyle } from "./NavbarStyle";
+import React from "react";
 
 export default function ButtonAppBar() {
   const { isMobile, isTablet } = useScreen();
-  const [activeSearch, setActiveSearch] = useState(false);
+  const [activeSearch, setActiveSearch] = React.useState<boolean>(false);
 
   function MobileSearchInput() {
     if (activeSearch) {
@@ -26,6 +26,7 @@ export default function ButtonAppBar() {
         </>
       );
     }
+    return <></>;
   }
 
   function ResponsiveAppBar() {

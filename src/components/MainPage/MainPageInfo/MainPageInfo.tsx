@@ -3,8 +3,9 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import StarIcon from "@mui/icons-material/Star";
 import { getGenresList } from "../../../helpers/getGenresList";
+import { Imovie } from "../../../app/slices/movieDataApi/movieDataSlice";
 
-export default function MainPageInfo({ data }) {
+export default function MainPageInfo({ data }: { data: Imovie }) {
   const genres = getGenresList(data);
   return (
     <>
@@ -21,7 +22,7 @@ export default function MainPageInfo({ data }) {
       </Box>
       <Box>
         <Stack direction={"row"} spacing={1}>
-          <Typography>{data.countries.name}</Typography>
+          <Typography>{data.countries[0].name}</Typography>
           <Typography>{genres}</Typography>
         </Stack>
       </Box>

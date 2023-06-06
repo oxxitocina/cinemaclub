@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../app/store";
 import { nextPage } from "../../../app/slices/scrollingPagination/scrollingPaginationSlice";
 import { buttonWrapper } from "./LoadMoreButtonStyle";
 
 export default function LoadMoreButton() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function handleClick() {
     dispatch(nextPage());

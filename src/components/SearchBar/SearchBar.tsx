@@ -1,7 +1,6 @@
-import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../app/store";
 import { setSearch } from "../../app/slices/search/searchingSlice";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
@@ -12,17 +11,18 @@ import {
   searchIconWrapper,
   searchTextFieldStyle,
 } from "./SearchBarStyle";
+import React from "react";
 
 export default function SearchBar() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { isMobile, isTablet } = useScreen();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
   const height = {
     height: isMobile ? "6vh" : isTablet ? "5vw" : "35.5px",
   };
 
-  function handleSubmit(event) {
+  function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
     dispatch(setSearch(searchQuery));
     setSearchQuery("");
@@ -35,7 +35,7 @@ export default function SearchBar() {
         <form onSubmit={handleSubmit} style={{ height: "100%" }}>
           <Box sx={searchFormWrapper}>
             <Box sx={[height, searchIconWrapper]}>
-              <SearchIcon sx={{color: 'white'}} type="submit" />
+              <SearchIcon sx={{ color: "white" }} type="submit" />
             </Box>
 
             <TextField

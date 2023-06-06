@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IinitialState {
-  savedMovies: string[];
+  savedMovies: number[];
 }
 
 const initialState: IinitialState = {
@@ -12,10 +12,10 @@ export const addToSavedSlice = createSlice({
   name: "addToSaved",
   initialState,
   reducers: {
-    addToSaved: (state, action: PayloadAction<string>) => {
+    addToSaved: (state, action: PayloadAction<number>) => {
       state.savedMovies.push(action.payload);
     },
-    removeFromSaved: (state, action: PayloadAction<string>) => {
+    removeFromSaved: (state, action: PayloadAction<number>) => {
       state.savedMovies.splice(state.savedMovies.indexOf(action.payload), 1);
     },
   },

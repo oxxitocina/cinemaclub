@@ -1,8 +1,8 @@
 import { data } from "../../mockData/allMovies";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/store";
 
 export function searchMovies() {
-  const searchQuery = useSelector((state) => state.searching.searchQuery);
+  const searchQuery = useAppSelector((state) => state.searching.searchQuery);
 
   if (searchQuery.length === 0) {
     return data;

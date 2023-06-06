@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { togglePlayer } from "../../../app/slices/toggleMoviePlayer/toggleMoviePlayerSlice";
 import { blockStyle, buttonStyle } from "./MovieThirdBlockStyle";
 
-export default function MovieThirdBlock({ id }) {
+export default function MovieThirdBlock({ id }: { id: number }) {
   const dispatch = useDispatch();
 
   return (

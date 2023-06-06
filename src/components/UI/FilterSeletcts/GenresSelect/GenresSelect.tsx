@@ -2,9 +2,9 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import genres from "../../../../mockData/genres.json";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../../app/store";
 import {
   addGenre,
   removeGenre,
@@ -15,9 +15,9 @@ import { selectStyle, labelStyle } from "../FilterSelectsStyle";
 import InputLabel from "@mui/material/InputLabel";
 
 export default function GenresSelect() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [currentGenre, setCurrentGenre] = React.useState<string[]>([]);
-  const filterGenres = useSelector((state) => state.filtering.genres);
+  const filterGenres = useAppSelector((state) => state.filtering.genres);
 
   const ITEM_HEIGHT = 70;
   const ITEM_PADDING_TOP = 8;
@@ -33,7 +33,7 @@ export default function GenresSelect() {
     disableScrollLock: true,
   };
 
-  function handleChange(event) {
+  function handleChange(event: SelectChangeEvent<string[]>) {
     const value = event.target.value[0];
     dispatch(changePage(1));
 

@@ -1,13 +1,13 @@
 import Button from "@mui/material/Button";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../app/store";
 import { useNavigate } from "react-router-dom";
 import { setAuthorization } from "../../../app/slices/authorization/authorizationSlice";
 import { buttonStyle } from "./AuthorizationButtonStyle";
 
 export default function AuthorizationButton() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const isUserSignedIn = useSelector(
+  const dispatch = useAppDispatch();
+  const isUserSignedIn = useAppSelector(
     (state) => state.authorization.isUserSignedIn
   );
 

@@ -1,5 +1,5 @@
 import Select from "@mui/material/Select";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../../app/store.tsx";
 import { sorting } from "../../../../mockData/filters.ts";
 import MenuItem from "@mui/material/MenuItem";
 import { changePage } from "../../../../app/slices/pagination/paginationSlice";
@@ -10,17 +10,17 @@ import {
 import { selectStyle } from "../FilterSelectsStyle";
 
 export default function SortingSelect() {
-  const dispatch = useDispatch();
-  const isUserSignedIn = useSelector(
+  const dispatch = useAppDispatch();
+  const isUserSignedIn = useAppSelector(
     (state) => state.authorization.isUserSignedIn
   );
-  const sortingMethod = useSelector(
+  const sortingMethod = useAppSelector(
     (state) => state.sorting.currentSortingMethod
   );
   const sortingData =
     isUserSignedIn === "false" ? sorting.slice(0, 4) : sorting;
 
-  function handleChange(event) {
+  function handleChange(event: { target: { value: string } }) {
     dispatch(changePage(1));
     dispatch(setCurrentSortingMethod(event.target.value));
     dispatch(filters(event.target.value));

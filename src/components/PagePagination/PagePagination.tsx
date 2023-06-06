@@ -1,35 +1,31 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../app/store";
 import { changePage } from "../../app/slices/pagination/paginationSlice";
 import Pagination from "@mui/material/Pagination";
-import { Box, createTheme, ThemeProvider } from "@mui/material";
-import {
-  pagePaginationTheme,
-  pagePaginationWrapper,
-} from "./PagePaginationStyle";
+import { Box } from "@mui/material";
+import { pagePaginationWrapper } from "./PagePaginationStyle";
 import useScreen from "../../hooks/useScreen";
 
 export default function PagePagination() {
-  const totalPages = useSelector((state) => state.pagination.totalPages);
-  const currentPage = useSelector((state) => state.pagination.page);
+  const totalPages = useAppSelector((state) => state.pagination.totalPages);
+  const currentPage = useAppSelector((state) => state.pagination.page);
   const { isMobile } = useScreen();
-  const dispatch = useDispatch();
-  const theme = createTheme(pagePaginationTheme);
+  const dispatch = useAppDispatch();
 
-  function handleChange(event, value) {
+  function handleChange(event: React.ChangeEvent<unknown>, value: number) {
     dispatch(changePage(value));
   }
 
   return (
     <>
-        <Box sx={pagePaginationWrapper}>
-          <Pagination
-            count={totalPages}
-            size={isMobile === true ? "small" : "medium"}
-            color="primary"
-            onChange={handleChange}
-            page={currentPage}
-          />
-        </Box>
+      <Box sx={pagePaginationWrapper}>
+        <Pagination
+          count={totalPages}
+          size={isMobile === true ? "small" : "medium"}
+          color="primary"
+          onChange={handleChange}
+          page={currentPage}
+        />
+      </Box>
     </>
   );
 }

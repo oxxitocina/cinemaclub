@@ -2,7 +2,7 @@ import FormGroup from "@mui/material/FormGroup";
 import genres from "../../../mockData/genres.json";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../app/store";
 import {
   addGenre,
   removeGenre,
@@ -10,10 +10,10 @@ import {
 import { changePage } from "../../../app/slices/pagination/paginationSlice";
 
 export default function GenresCheckBoxes() {
-  const dispatch = useDispatch();
-  const filterGenres = useSelector((state) => state.filtering.genres);
+  const dispatch = useAppDispatch();
+  const filterGenres = useAppSelector((state) => state.filtering.genres);
 
-  function handleChangeGenre(event) {
+  function handleChangeGenre(event: React.ChangeEvent<HTMLInputElement>) {
     dispatch(changePage(1));
     if (filterGenres.includes(event.target.value)) {
       dispatch(removeGenre(event.target.value));

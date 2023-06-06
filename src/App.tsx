@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={palette}>
-        <Box sx={{ backgroundColor: "secondary.main"}}>
+        <Box sx={{ backgroundColor: "secondary.main" }}>
           <Navbar />
           <Outlet />
         </Box>

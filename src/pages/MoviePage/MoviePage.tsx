@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../app/store";
 import MoviePlayer from "../../components/MoviePlayer/MoviePlayer";
 import LoadingCircle from "../../components/UI/LoadingCircle/LoadingCircle";
 import { getGenresList } from "../../helpers/getGenresList";
@@ -12,22 +12,24 @@ import MovieSecondBlock from "./MovieSecondBlock/MovieSecondBlock";
 import MovieThirdBlock from "./MovieThirdBlock/MovieThirdBlock";
 
 export default function MoviePage() {
-  const loading = useSelector((state) => state.movie.loading);
+  const loading = useAppSelector((state) => state.movie.loading);
   const location = useLocation();
   const movieData = location.state.movieData;
   const genres = getGenresList(movieData);
-  const showPlayer = useSelector((state) => state.toggleMoviePlayer.active);
+  const showPlayer = useAppSelector((state) => state.toggleMoviePlayer.active);
 
   function Loader() {
     if (loading == "loading") {
       return <LoadingCircle />;
     }
+    return <></>;
   }
 
   function ToggleMoviePlayer() {
     if (showPlayer === true) {
       return <MoviePlayer id={movieData.id} />;
     }
+    return <></>;
   }
 
   return (

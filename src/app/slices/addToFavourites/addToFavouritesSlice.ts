@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IinitialState {
-  favouriteMovies: string[];
+  favouriteMovies: number[];
 }
 
 const initialState: IinitialState = {
@@ -12,10 +12,10 @@ export const addToFavouritesSlice = createSlice({
   name: "FavouritesMovies",
   initialState,
   reducers: {
-    addToFavourites: (state, action: PayloadAction<string>) => {
+    addToFavourites: (state, action: PayloadAction<number>) => {
       state.favouriteMovies.push(action.payload);
     },
-    removeFromFavourites: (state, action: PayloadAction<string>) => {
+    removeFromFavourites: (state, action: PayloadAction<number>) => {
       state.favouriteMovies.splice(
         state.favouriteMovies.indexOf(action.payload),
         1

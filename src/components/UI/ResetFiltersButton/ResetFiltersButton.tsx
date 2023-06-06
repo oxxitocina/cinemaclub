@@ -1,12 +1,12 @@
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../app/store";
 import { setDefaultValues } from "../../../app/slices/sorting/sortingSlice";
 import { changePage } from "../../../app/slices/pagination/paginationSlice";
 import { setDefault } from "../../../app/slices/filtering/filteringSlice";
 import { setSearch } from "../../../app/slices/search/searchingSlice";
 
 export default function ResetFiltersButton() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   function handleButtonClick() {
     dispatch(setDefaultValues());

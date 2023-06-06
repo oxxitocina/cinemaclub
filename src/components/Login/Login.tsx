@@ -18,17 +18,23 @@ export default function Login() {
   const [username, setUsername] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
 
-  function handleUsernameChange(event: { target: { value: SetStateAction<string>; }; }) {
+  function handleUsernameChange(event: {
+    target: { value: SetStateAction<string> };
+  }) {
     setUsername(event.target.value);
   }
 
-  function handlePasswordChange(event: { target: { value: SetStateAction<string>; }; }) {
+  function handlePasswordChange(event: {
+    target: { value: SetStateAction<string> };
+  }) {
     setPassword(event.target.value);
   }
 
-  function handleSubmit(event: { preventDefault: () => void; }) {
+  function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault();
-    const user: {login: string, password: string} = JSON.parse(localStorage.getItem("user") || '');
+    const user: { login: string; password: string } = JSON.parse(
+      localStorage.getItem("user") || ""
+    );
     if (username == user.login && password == user.password) {
       dispatch(setAuthorization("true"));
       navigate("/");

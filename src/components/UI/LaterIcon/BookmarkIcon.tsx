@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIconFilled from "@mui/icons-material/Bookmark";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../app/store";
 import { useNavigate } from "react-router-dom";
 import { iconStyle } from "./BookmarkIconStyle";
 import Box from "@mui/material/Box";
@@ -10,29 +10,29 @@ import {
   removeFromSaved,
 } from "../../../app/slices/addToLater/addToSavedSlice";
 
-export default function BookmarkIcon({ id }) {
+export default function BookmarkIcon({ id }: { id: number }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const isUserSignedIn = useSelector(
+  const dispatch = useAppDispatch();
+  const isUserSignedIn = useAppSelector(
     (state) => state.authorization.isUserSignedIn
   );
-  const savedMovies = useSelector((state) => state.addToSaved.savedMovies);
+  const savedMovies = useAppSelector((state) => state.addToSaved.savedMovies);
 
   useEffect(() => {
-    localStorage.setItem("savedMovies", JSON.stringify(savedMovies) || []);
+    localStorage.setItem("savedMovies", JSON.stringify(savedMovies || []));
   }, [savedMovies]);
 
-  function handleClick(event) {
+  function handleClick(event: { stopPropagation: () => void }) {
     event.stopPropagation();
     navigate("/login");
   }
 
-  function addMovie(event) {
+  function addMovie(event: { stopPropagation: () => void }) {
     event.stopPropagation();
     dispatch(addToSaved(id));
   }
 
-  function removeMovie(event) {
+  function removeMovie(event: { stopPropagation: () => void }) {
     event.stopPropagation();
     dispatch(removeFromSaved(id));
   }

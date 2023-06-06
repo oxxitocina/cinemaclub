@@ -2,8 +2,9 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import { movieStyle, dividerStyle } from "./MovieFirstBlockStyle";
+import { Imovie } from "../../../app/slices/movieDataApi/movieDataSlice";
 
-export default function MovieFirstBlock({ movieData }) {
+export default function MovieFirstBlock({ movieData }: { movieData: Imovie }) {
   return (
     <Box sx={movieStyle}>
       <Typography variant="subtitle1">{movieData.rating.kp}</Typography>
