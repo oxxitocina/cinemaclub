@@ -1,12 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface IinitialState {
+  searchQuery: string;
+}
+
+const initialState: IinitialState = {
+  searchQuery: "",
+};
 
 export const searchingSlice = createSlice({
   name: "searching",
-  initialState: {
-    searchQuery: "",
-  },
+  initialState,
   reducers: {
-    setSearch: (state, action) => {
+    setSearch: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload.toUpperCase();
     },
   },

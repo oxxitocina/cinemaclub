@@ -1,13 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface IinitialState {
+  selectSortingMethod: string;
+  order: string;
+  dateSorting: string;
+  currentSortingMethod: string;
+}
+
+const initialState: IinitialState = {
+  selectSortingMethod: "votes",
+  order: "descending",
+  dateSorting: "all",
+  currentSortingMethod: "popularityDescending",
+};
 
 export const sortingSlice = createSlice({
   name: "sorting",
-  initialState: {
-    selectSortingMethod: "votes",
-    order: "descending",
-    dateSorting: "all",
-    currentSortingMethod: "popularityDescending",
-  },
+  initialState,
   reducers: {
     setDefaultValues: (state) => {
       state.selectSortingMethod = "votes";
@@ -15,13 +24,13 @@ export const sortingSlice = createSlice({
       state.dateSorting = "all";
       state.currentSortingMethod = "popularityDescending";
     },
-    changeDate: (state, action) => {
+    changeDate: (state, action: PayloadAction<string>) => {
       state.dateSorting = action.payload;
     },
-    setCurrentSortingMethod: (state, action) => {
+    setCurrentSortingMethod: (state, action: PayloadAction<string>) => {
       state.currentSortingMethod = action.payload;
     },
-    filters: (state, action) => {
+    filters: (state, action: PayloadAction<string>) => {
       switch (action.payload) {
         case "popularityDescending":
           state.selectSortingMethod = "votes";

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import store from "./app/store.tsx";
+import { store } from "./app/store.tsx";
 import { Provider } from "react-redux/es/exports";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

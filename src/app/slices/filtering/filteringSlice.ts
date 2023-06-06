@@ -1,15 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface IinitialState {
+  genres: string[];
+}
+
+const initialState: IinitialState = {
+  genres: [],
+};
 
 export const filteringSlice = createSlice({
   name: "filtering",
-  initialState: {
-    genres: [],
-  },
+  initialState,
   reducers: {
-    addGenre: (state, action) => {
+    addGenre: (state, action: PayloadAction<string>) => {
       state.genres.push(action.payload);
     },
-    removeGenre: (state, action) => {
+    removeGenre: (state, action: PayloadAction<string>) => {
       state.genres.splice(state.genres.indexOf(action.payload), 1);
     },
     setDefault: (state) => {

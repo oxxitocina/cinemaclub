@@ -1,15 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface IinitialState {
+  favouriteMovies: string[];
+}
+
+const initialState: IinitialState = {
+  favouriteMovies: JSON.parse(localStorage.getItem("favouriteMovies") || "[]"),
+};
 
 export const addToFavouritesSlice = createSlice({
   name: "FavouritesMovies",
-  initialState: {
-    favouriteMovies: JSON.parse(localStorage.getItem("favouriteMovies")) || [],
-  },
+  initialState,
   reducers: {
-    addToFavourites: (state, action) => {
+    addToFavourites: (state, action: PayloadAction<string>) => {
       state.favouriteMovies.push(action.payload);
     },
-    removeFromFavourites: (state, action) => {
+    removeFromFavourites: (state, action: PayloadAction<string>) => {
       state.favouriteMovies.splice(
         state.favouriteMovies.indexOf(action.payload),
         1

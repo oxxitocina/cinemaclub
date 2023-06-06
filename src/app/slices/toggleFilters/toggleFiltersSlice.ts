@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface IinitialState {
+  active: boolean;
+}
+
+const initialState: IinitialState = {
+  active: false,
+};
+
 export const toggleFiltersSlice = createSlice({
   name: "toggleFilter",
-  initialState: {
-    active: false,
-  },
+  initialState,
   reducers: {
     toggleFilter: (state) => {
       state.active = !state.active;
