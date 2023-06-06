@@ -22,7 +22,6 @@ export default function MoviesPage() {
 
   function FilterMenu() {
     if (showFilter === true) {
-      // document.body.style.overflow = 'hidden';
       return (
         <>
           <Box sx={MobileFilterWrapper}>
@@ -30,8 +29,6 @@ export default function MoviesPage() {
           </Box>
         </>
       );
-    } else {
-      document.body.style.overflow = "scroll";
     }
   }
 
@@ -49,7 +46,7 @@ export default function MoviesPage() {
 
   return (
     <>
-      <Box sx={{ marginTop: 12 }}>
+      <Box sx={{ paddingTop: 12 }}>
         <FilterMenu />
         <Container>
           <BurgerMenu />

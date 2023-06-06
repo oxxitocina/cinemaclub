@@ -15,7 +15,7 @@ export const fetchMovieById = createAsyncThunk(
   }
 );
 
-interface Imovie {
+export interface Imovie {
   externalId: {
     kpHD: string;
     imdb: string;
@@ -28,6 +28,10 @@ interface Imovie {
     russianFilmCritics: number;
     await: null;
   };
+  backdrop?: {
+    url: string,
+    previewUrl: string
+  },
   votes: {
     kp: number;
     imdb: number;
@@ -47,7 +51,7 @@ interface Imovie {
   };
   genres: { name: string }[];
   countries: { name: string }[];
-  alternativeName: "Intouchables";
+  alternativeName: string;
   enName: null;
   names: {
     name: string;
@@ -55,7 +59,7 @@ interface Imovie {
     type?: string | null;
   }[];
   shortDescription: string;
-  logo: {
+  logo?: {
     url: string;
   };
   watchability: {

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { setAuthorization } from "../../app/slices/authorization/authorizationSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../app/store";
 import { useNavigate } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
 import {
@@ -10,24 +10,25 @@ import {
   inputWrapper,
   textFieldStyle,
 } from "./LoginStyle";
+import React from "react";
 
 export default function Login() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
 
-  function handleUsernameChange(event) {
+  function handleUsernameChange(event: { target: { value: SetStateAction<string>; }; }) {
     setUsername(event.target.value);
   }
 
-  function handlePasswordChange(event) {
+  function handlePasswordChange(event: { target: { value: SetStateAction<string>; }; }) {
     setPassword(event.target.value);
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event: { preventDefault: () => void; }) {
     event.preventDefault();
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user: {login: string, password: string} = JSON.parse(localStorage.getItem("user") || '');
     if (username == user.login && password == user.password) {
       dispatch(setAuthorization("true"));
       navigate("/");

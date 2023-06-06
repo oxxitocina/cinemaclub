@@ -21,7 +21,6 @@ export default function PagePagination() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
         <Box sx={pagePaginationWrapper}>
           <Pagination
             count={totalPages}
@@ -31,7 +30,6 @@ export default function PagePagination() {
             page={currentPage}
           />
         </Box>
-      </ThemeProvider>
     </>
   );
 }

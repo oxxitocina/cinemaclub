@@ -18,12 +18,13 @@ import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchMovieById } from "../../app/slices/movieDataApi/movieDataSlice";
+import { Imovie } from "../../app/slices/movieDataApi/movieDataSlice";
 
-export default function MainPage(props) {
+export default function MainPage(props: {props: Imovie}) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = props.props;
-  const url = data.backdrop.url;
+  const url = data?.backdrop?.url;
   const { isMobile, isTablet } = useScreen();
 
   function ResponsiveMainPage() {
@@ -57,7 +58,7 @@ export default function MainPage(props) {
                 Подробнее
               </Button>
               <Box>
-                <SaveIcon id={data.id} />
+                <SaveIcon id ={data.id} />
               </Box>
               <Box>
                 <BookmarkIcon id={data.id} />

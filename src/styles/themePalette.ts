@@ -8,6 +8,7 @@ export const palette = createTheme({
     },
     secondary: {
       main: "#0d0d0f",
+      // main: '#fdf2f6'
     },
   },
   components: {
@@ -55,6 +56,19 @@ export const palette = createTheme({
       styleOverrides: {
         root: {
           padding: 0,
+        },
+      },
+    },
+    MuiPagination: {
+      styleOverrides: {
+        root: {
+          button: {
+            color: "white",
+            backgroundColor: "#782abb",
+          },
+          div: {
+            color: "white",
+          },
         },
       },
     },

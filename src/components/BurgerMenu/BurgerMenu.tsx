@@ -5,7 +5,6 @@ import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import AuthorizationButton from "../UI/AuthorizationButton/AuthorizationButton";
 import { useNavigate } from "react-router-dom";
-import { buttonStyle } from "./BurgerMenuStyle";
 
 export default function BurgerMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

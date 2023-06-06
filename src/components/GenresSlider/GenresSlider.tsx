@@ -11,7 +11,7 @@ import {
   genreSliderWrapper,
 } from "./GenresSliderStyle";
 import MovieCategoryNavigation from "../UI/MovieCategoryNavigation/MovieCategoryNavigation";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../app/store";
 import {
   addGenre,
   removeGenre,
@@ -19,11 +19,11 @@ import {
 import { useNavigate } from "react-router-dom";
 
 export default function GenresSlider() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const filterGenres = useSelector((state) => state.filtering.genres);
+  const filterGenres = useAppSelector((state) => state.filtering.genres);
 
-  function handleClick(genre) {
+  function handleClick(genre: string) {
     if (filterGenres.includes(genre)) {
       dispatch(removeGenre(genre));
     } else {
@@ -43,7 +43,7 @@ export default function GenresSlider() {
               disableOnInteraction: false,
             }}
             loop={true}
-            slidesPerView="2"
+            slidesPerView={2}
             spaceBetween={20}
             modules={[Autoplay]}
             className="mySwiper"

@@ -1,5 +1,5 @@
 export const navigationStyle = {
-  color: "white",
+  color: "primary.main",
   borderLeft: "3px solid #782abb",
   paddingLeft: "10px",
   display: "flex",

@@ -35,7 +35,7 @@ export default function SearchBar() {
         <form onSubmit={handleSubmit} style={{ height: "100%" }}>
           <Box sx={searchFormWrapper}>
             <Box sx={[height, searchIconWrapper]}>
-              <SearchIcon type="submit" />
+              <SearchIcon sx={{color: 'white'}} type="submit" />
             </Box>
 
             <TextField

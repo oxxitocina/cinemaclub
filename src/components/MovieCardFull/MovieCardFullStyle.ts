@@ -19,7 +19,7 @@ const movieImageStyle = {
 };
 
 const typographyStyle = {
-  color: "white",
+  color: "primary.main",
   marginTop: 1,
   width: "85%",
 };

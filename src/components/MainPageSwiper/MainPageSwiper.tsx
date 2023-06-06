@@ -8,6 +8,7 @@ import ArrowForward from "../UI/NavigationButtons/ArrowForward";
 import ArrowBack from "../UI/NavigationButtons/ArrowBack";
 import { dataMain } from "../../mockData/mainPage";
 import useScreen from "../../hooks/useScreen";
+import { Imovie } from "../../app/slices/movieDataApi/movieDataSlice";
 
 export default function MainPageSwiper() {
   const { isMobile, isTablet } = useScreen();

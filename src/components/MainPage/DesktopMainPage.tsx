@@ -16,12 +16,13 @@ import {
 import SaveIcon from "../UI/SaveIcon/SaveIcon";
 import BookmarkIcon from "../UI/LaterIcon/BookmarkIcon";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../app/store";
 import { fetchMovieById } from "../../app/slices/movieDataApi/movieDataSlice";
+import { Imovie } from "../../app/slices/movieDataApi/movieDataSlice";
 
 export default function DesktopMainPage({ data }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const url = data.backdrop.url;
   return (
     <>
